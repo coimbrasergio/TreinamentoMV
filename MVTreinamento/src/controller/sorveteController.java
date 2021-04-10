@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import entidade.RetornoSorvete;
 import entidade.Sorvete;
 
@@ -11,9 +13,11 @@ public interface sorveteController {
 		
 	public RetornoSorvete deletar (Sorvete codigo);
 	
-	public RetornoSorvete pesquisar (Sorvete codigo);
+	public RetornoSorvete pesquisar (Sorvete sorvete);
 
-	public RetornoSorvete listarTodos (Sorvete sorvete);
+	public RetornoSorvete listarTodos();
+
+	
 
 	
 }

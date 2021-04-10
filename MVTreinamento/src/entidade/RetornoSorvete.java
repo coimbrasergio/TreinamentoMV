@@ -8,8 +8,7 @@ public class RetornoSorvete {
 	private String retornoMensagem;
 	private List<Sorvete> retornoLista;
 	
-	
-	
+
 
 	public Sorvete getRetornoSorvete() {
 		return retornoSorvete;

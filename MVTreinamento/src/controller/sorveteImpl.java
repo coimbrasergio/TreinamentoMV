@@ -9,7 +9,7 @@ import entidade.Sorvete;
 public class sorveteImpl implements sorveteController{
 	
 	private List<Sorvete> lista;
-	
+
 
 	public sorveteImpl() {
 		this.lista = new ArrayList<Sorvete>();
@@ -59,7 +59,7 @@ public class sorveteImpl implements sorveteController{
 				}
 			}
 				if (rs.getRetornoSorvete()==null) {
-					rs.setRetornoMensagem("Sorvete não Encontrado");
+					rs.setRetornoMensagem("Sorvete nï¿½o Encontrado");
 					System.out.println(rs.getRetornoMensagem());
 					
 					
@@ -79,11 +79,11 @@ public class sorveteImpl implements sorveteController{
 				 RetornoSorvete rs = new RetornoSorvete();
 				 	if (existe != null) {
 				 		lista.remove(existe);
-				 		rs.setRetornoMensagem("Sorvete Excluído com Sucesso!");
+				 		rs.setRetornoMensagem("Sorvete Excluï¿½do com Sucesso!");
 				 		System.out.println(rs.getRetornoMensagem());
 				 		
 					}else {
-						rs.setRetornoMensagem("Sorvete não Existe!");
+						rs.setRetornoMensagem("Sorvete nï¿½o Existe!");
 						System.out.println(rs.getRetornoMensagem());
 								
 					}
@@ -92,41 +92,51 @@ public class sorveteImpl implements sorveteController{
 	}
 
 	@Override
-	public RetornoSorvete pesquisar(Sorvete codigo) {
+	public RetornoSorvete pesquisar(Sorvete sorvete) {
 			Sorvete existe = null;
 			for (Sorvete s : lista) {
-				if (s.equals(codigo)) {
+				if (s.equals(sorvete)) {
 					existe = s;
 					
 				}
 			}
 				RetornoSorvete rs = new RetornoSorvete();
-				 rs.setRetornoSorvete(codigo);
-				 rs.setRetornoSorvete(existe);
-				 
+	
 				 if (existe !=null) {
+					 rs.setRetornoSorvete(existe);
 					 rs.setRetornoMensagem("Sorvete Encontrado");
 					 System.out.println(rs.getRetornoMensagem());
+					 System.out.println("CÃ³digo: " + existe.getCodigo() + " - " + " Sabor: " + existe.getSabor() + " - " + "Tipo: " + existe.getTipo() + " - " + "Valor: "+ existe.getValor());
 					
 				}else {
-					 rs.setRetornoMensagem("Sorvete não Encontrado");
+					 rs.setRetornoMensagem("Sorvete nï¿½o Encontrado");
 					 System.out.println(rs.getRetornoMensagem());
 				}
 				
 				 	return rs;
 	}
 
+
 	@Override
-	public RetornoSorvete listarTodos(Sorvete sorvete) {
-		RetornoSorvete rs = new RetornoSorvete();
-		rs.setRetornoMensagem("Todos Sorvetes");
-		rs.setRetornoLista(lista);
-		System.out.println(rs.getRetornoMensagem());
-		System.out.println(rs.getRetornoLista());
+	public RetornoSorvete listarTodos() {
+		for (Sorvete s : lista) {
+			System.out.println("CÃ³digo.....: " + s.getCodigo() + "\n");
+			System.out.println("Sabor.....: " + s.getSabor() + "\n");
+			System.out.println("Tipo.....: " + s.getTipo() + "\n");
+			System.out.println("Valor.....: " + s.getValor() + "\n");
 		
-					return rs;
 	}
+		return null;
+			
+	}
+
+
+	}
+
+			
+					
+	
 	
 	
 
-}
+
